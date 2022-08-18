@@ -1,0 +1,35 @@
+/* program for data types */
+#include <stdio.h>  //header file
+
+  int main()  //program starts from main function
+{
+    int a = 4000;   // positive integer data type
+    float b = 5.2324;   // float data type
+    char c = 'Z';   // signed char data type
+    long d = 41657;   // long signed integer data type
+    unsigned long e = -21556;   // long unsigned integer data type
+    int f = -185;   // signed int  integer data type
+    short g = 130;   // short +ve integer data type
+     unsigned short h = -130;   // short -ve integer data type(unsigned short int has a range b/w 0-65535 since we initialize it to negative value somit takes 65535 as -1 .... hence 65406 is treated as -130)
+    double i = 4.1234567890;  // double float data type
+    float j = -3.55;   // float data type
+    printf("%d\n%f\n%c\n%d\n%u\n%d\n%d\n%u\n%.4lf\n%.3f",a,b,c,d,e,f,g,h,i,j); //to print output
+    unsigned int x=-1;//unsigned integer as data type
+    int y=x;
+    printf("\n x=%u y=%d",x,y); // unsigned int doesnot takes negative value so it again converts into 2's complement and sends the result
+
+    return 0;  //return type
+}
+output:
+     
+4000
+5.232400
+Z
+41657
+4294945740
+-185
+130
+65406
+4.1235
+-3.550
+x=4294967295 y=-1
