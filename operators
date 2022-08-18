@@ -1,0 +1,38 @@
+/*program to explain all operators using different data types*/
+#include <stdio.h> //header file
+
+int main() //program execution starts from here
+{
+   int a=4,b=5,c=2; // initialisation of int data type variables
+   float d=6.2,e=4.3; //initialization of float type variables
+   printf("%d,%d,%f,%f\n",a+b, b-c,d*e,d/e);//performing arithmetic Operator
+   d+=e;
+   printf("%f\n",d);//performing addition using assignment operator
+   a|=2;
+   printf("%d\n",a);//performing OR using assignment operator  
+   b^=3;
+   printf("%d",b);//performing XOR using assignment operator
+   
+    if (a>b && b!=0)//performing logical and relational operators at a time 
+      printf("&& Operator : Both conditions are true\n");
+   if (c>d || d!=20)
+      printf("|| Operator : Only one condition is true\n");
+   if (!(d>e && e!=0))
+      printf("! Operator : Both conditions are true\n");
+   else
+      printf("! Operator : Both conditions are true. But, status is inverted as false\n");
+      printf("a&b = %d\n",a&b);//bitwise AND operator
+      printf("a^b = %d\n",a^b);//bitwise XOR operator
+      printf("a|b= %d\n",a|b);//bitwise OR operator
+    return 0;
+}
+output:
+9,3,26.660000,1.441860
+10.500000
+6
+6|| operator : Only one condition is true
+! operator : Both condition are true. But, status is inverted
+as false
+a&b = 6
+a^b = 5
+a|b= 6
