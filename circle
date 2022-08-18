@@ -1,0 +1,20 @@
+/*program to calculate area and circumference of the circle*/
+#include <stdio.h>  //header file
+
+  int main()  //program starts from main function
+{
+     int rad;  //declaration of radius
+     float pi=3.14,cir,area;  //initialization of constant pi & declaration of circumference and area
+     printf("enter the value of rad: ");  //our console is to enter the value of radius
+     scanf("%d",&rad);  //reading the value of radius
+     area=pi*rad*rad;  //calculation of area
+     printf("area of the circle:%f\n",area);  //area of circle is obtained by the above formula
+     cir=2*pi*rad;  //calculation of circumference
+     printf("circumference of the circle:%f",cir);  //circumference of circle is obtained by the above formula
+
+    return 0;  //return type
+}
+output:
+enter the value of rad: 4
+area of the circle:50.240002
+circumference of the circle:25.120001
