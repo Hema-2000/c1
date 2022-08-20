@@ -1,0 +1,56 @@
+#include <stdio.h>//header file
+void copy(int *x,int *y)//creating a function declaration 
+{
+    int i;
+    for(i=0;i<6;i++)
+    {
+        *(y+i)=*(x+i);    
+    }
+    printf("elements at array 2:");
+    for(i=0;i<6;i++)
+    { 
+       printf(" \n%d",*(y+i));
+    }
+}
+int main()
+{
+    int arr1[50],arr2[50];
+    int i;
+    for(i=0;i<6;i++)
+    {   
+        printf("element at %d position:",i);
+        scanf("%d",&*(arr1+i));
+    }
+    printf("printing elements at array 1\n");
+    for(i=0;i<6;i++)
+    {
+    
+        printf(" %d\n",*(arr1+i));
+    }
+    
+    
+    copy(arr1,arr2);
+    return 0;
+}
+result:
+element at 0 position:1
+element at 1 position:2
+element at 2 position:3
+element at 3 position:4
+element at 4 position:5
+element at 5 position:6
+printing elements at array 1
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+elements at array 2: 
+1 
+2 
+3 
+4 
+5 
+6
+
