@@ -1,33 +1,33 @@
-#include <stdio.h>
+#include <stdio.h>//header file
 #include<string.h>//header file
 void copy(char *a,char *b)//creating a function declaration 
 {
-   while(*a!='\0')
+   while(*a!='\0')//loop to iterate characters in the string
     {
-        *b=*a;
-        a++;
-        b++;
+        *b=*a;//assigning the values by pointing the address
+        a++;//increments a value
+        b++;// increments b value
     }
-    *b='\0';
+    *b='\0';//null is assigned to pinter b
 }
-int main()
+int main()//execution stats from here
 { 
-    int l;
-    char s1[100],s2[100];
-    char *x;
-    char *y;
-    x=s1;
-    y=s2;
-    printf("Enter the string s1:");
-    scanf("%[^\n]s",s1);
+    int l;// declaration of l
+    char s1[100],s2[100];//declaration of strings along with size
+    char *x; // pointer declaration with variable x
+    char *y;// pointer declaration with variable y
+    x=s1;//string 1 is assigned to x
+    y=s2;//string 2 is assigned to y
+    printf("Enter the string s1:");// print statement
+    scanf("%[^\n]s",s1);//read statement for string
     printf("The string is:");
-    printf("%s\n",s1);
-    copy(s1,s2);
-    printf("The copied string s2 is:%s\n",s2);
-    l=strlen(s2);
-    printf("The length of string s2 is:");
-    printf("%d",l);
-    return 0;
+    printf("%s\n",s1);//print statement for string
+    copy(s1,s2);//calling function
+    printf("The copied string s2 is:%s\n",s2);// print statement for string 2
+    l=strlen(s2);// to find length of the string
+    printf("The length of string s2 is:");// print statement 
+    printf("%d",l);// print statement for lenth of the string
+    return 0;// return type
 }
 
 Output:
