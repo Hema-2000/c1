@@ -1,0 +1,18 @@
+ why the character is 1 byte?
+ Just count all the values, so total will 26 capital alphabets we have in English and 26 small letters 
+ next 10 numbers and not more than 150 special symbols. So here if you add all these, then this is less than 256. 
+ Any language you can take in this world, it is at most having 256 symbols.
+  So, ASCII decided that if we assign the values for these symbols from 0 to 255, so you can represent any character in the language using one byte of memory.
+  256 is nothing but a 2 power 8 value. 2 power 8 is nothing but a one-byte memory.
+  This is the only reason every character we can represent using one byte of memory in a programming language.
+  
+  
+  
+  What does CHAR (UNnsigned &  Signed) by default?
+  The default value of Char is the character with a code point of 0.
+  \u0000'
+  
+  
+  
+
+
