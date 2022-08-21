@@ -1,0 +1,108 @@
+/* sorting an array using pointers - ascending order*/
+#include <stdio.h>   //header file 
+void sort(int* ptr,int n)  //function to sort elements in ascending  order
+{
+    int i,j,temp;    // int data type of declaration of variables i,j,temp variable 
+ 
+    // Sort the numbers using pointers
+    for(i=0;i<n;i++)    //loop to iterate over array with index and run upto given condition
+    {
+        for(j=i+1;j<n;j++)  //inner loop to iterate over array  start with i+1 and run upto given condition
+        {
+            if(*(ptr+j)<*(ptr+i))   //it checks if  condition is true it swaps the the elements 
+            {
+                temp=*(ptr+i);   //value with in pointer address is assigns to temp variable
+                *(ptr+i)=*(ptr+j);  //value with in pointer address (j) is assigns to given address
+                *(ptr+j)=temp;      //temporary variable is assigned to pointer address of j
+            }
+        }
+    }
+    // print the numbers
+            printf("\nThe elements after sorting in ascending order are:");  //printing message
+        for (i=0;i<n;i++)     //for loop for ascending order
+        printf("%d ",*(ptr+i));  // printing the numbers in ascending order
+}
+int main()  // program execution starts from here
+{
+    int i,n;  //int type declaration of i and n 
+    int arr[100];  //int type declaration of an array 
+    printf("Enter the size of an array:"); // printing n value
+    scanf("%d",&n);   //reading n value
+    for (i = 0; i < n; i++)   //for loop to read elements into the array
+   {
+     printf("The element  %d th is:",i);  //printing message
+     scanf("%d",&arr[i]);  //reading elements 
+    }
+    printf("The elements before sorting are:");  //printing message
+    for (i = 0; i < n; i++)  //for loop to display elements into the array
+   {
+     printf("%d ",arr[i]);   //printing the entered elements
+   }
+    sort(arr,n);   //calling function swap with arguments array and size of array
+    return 0;   //return type
+}
+result:
+Enter the size of an array:5
+The element  0 th is:3
+The element  1 th is:8
+The element  2 th is:2
+The element  3 th is:1
+The element  4 th is:7
+The elements before sorting are:3 8 2 1 7 
+The elements after sorting in ascending order are:1 2 3 7 8 
+
+/*  sorting an array using pointers - ascending order*/
+#include <stdio.h>   //header file 
+void sort(int* ptr,int n)  //function to sort elements in descending  order
+{
+    int i,j,temp;    // int data type of declaration of variables i,j,temp variable 
+ 
+    // Sort the numbers using pointers
+    for(i=0;i<n;i++)    //loop to iterate over array with index and run upto given condition
+    {
+        for(j=i+1;j<n;j++)  //inner loop to iterate over array  start with i+1 and run upto given condition
+        {
+            if(*(ptr+j)>*(ptr+i))   //it checks if  condition is true it swaps the the elements 
+            {
+                temp=*(ptr+i);   //value with in pointer address is assigns to temp variable
+                *(ptr+i)=*(ptr+j);  //value with in pointer address (j) is assigns to given address
+                *(ptr+j)=temp;      //temporary variable is assigned to pointer address of j
+            }
+        }
+    }
+    // print the numbers
+            printf("\nThe elements after sorting in ascending order are:");  //printing message
+        for (i=0;i<n;i++)     //for loop for descending order
+        printf("%d ",*(ptr+i));  // printing the numbers in ascending order
+}
+int main()  // program execution starts from here
+{
+    int i,n;  //int type declaration of i and n 
+    int arr[100];  //int type declaration of an array 
+    printf("Enter the size of an array:"); // printing n value
+    scanf("%d",&n);   //reading n value
+    for (i = 0; i < n; i++)   //for loop to read elements into the array
+   {
+     printf("The element  %d th is:",i);  //printing message
+     scanf("%d",&arr[i]);  //reading elements 
+    }
+    printf("The elements before sorting are:");  //printing message
+    for (i = 0; i < n; i++)  //for loop to display elements into the array
+   {
+     printf("%d ",arr[i]);   //printing the entered elements
+   }
+    sort(arr,n);   //calling function swap with arguments array and size of array
+    return 0;   //return type
+}
+result:
+Enter the size of an array:5
+The element  0 th is:4
+The element  1 th is:6
+The element  2 th is:2
+The element  3 th is:5
+The element  4 th is:10
+The elements before sorting are:4 6 2 5 10 
+The elements after sorting in ascending order are:10 6 5 4 2 
+
+
+    
