@@ -1,0 +1,31 @@
+Constant Pointers 
+he address will remain constant.
+Syntax: <type of pointer> *const <name of the pointer>
+example:
+#include <stdio.h>  
+int main()  
+{  
+    int a=1;  
+    int b=2;  
+    int *const ptr;  
+    ptr=&a;  
+    ptr=&b;  
+    printf("Value of ptr is :%d",*ptr);  
+    return 0;  
+}  
+output: compilation failed
+main.c: In function ‘main’:
+main.c:15:8: error: assignment of read-only variable ‘ptr’
+   15 |     ptr=&a;
+      |        ^
+main.c:16:8: error: assignment of read-only variable ‘ptr’
+   16 |     ptr=&b;
+   
+note:
+In the above code, we are changing the value of 'ptr' from &a to &b, which is not possible with constant pointers.
+Therefore, we can say that the constant pointer, which points to some variable, cannot point to another variable.
+
+Pointer to Constant:
+ the value of the variable that the pointer points cannot be changed.  The address of these pointers can be changed.
+ Syntax: const <type of pointer>* <name of pointer> 
+      
