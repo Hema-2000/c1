@@ -1,0 +1,253 @@
+/*printing base address of the array*/
+#include<stdio.h>//header file
+int main()// execution starts from here
+{ 
+    char arr[5];//declaration of array in char data type
+    
+     printf("the base address of an array is: %p",arr);//printing address of that array
+
+ return 0;//return type
+ 
+}
+output:
+the base address of an array is: 0x7ffd03deac63
+
+
+/*printing the address of all the elements in the array without loops*/
+#include<stdio.h>//header file
+#define SIZE_ARR 5//method 1 using macros - asigning size of the array
+int main()// execution starts from here
+{ 
+    char arr[] ={'a','b','c','d','e'};//initialisation of array in char data type
+    int i;// declaration of char data type for loop iteration
+    int no_ele=sizeof(arr)/sizeof(char);//method 2 to calculate the size manually
+    printf("no. of elements in an array :%d\n",no_ele);//printing size of an array
+    
+     printf(" address of an array:%p %p\n",arr,&arr[0]);//printing address of an array
+     printf("address of first element %p\n value at index 0 %c\n",arr+0,arr[0]);//printing address and value of the element in the array
+     
+     
+    
+     printf(" address of an array:%p %p\n",arr,&arr[1]);//printing address of an array
+     printf("address of second element %p\n value at index 1 %c\n",arr+1,arr[1]);//printing address and value of the element in the array
+     
+      printf(" address of an array:%p %p\n",arr,&arr[2]);//printing address of an array
+     printf("address of third element %p\n value at index 2 %c\n",arr+2,arr[2]);//printing address and value of the element in the array
+     
+     
+      printf(" address of an array:%p %p\n",arr,&arr[3]);//printing address of an array
+     printf("address of fourth element %p\n value at index 3 %c\n",arr+3,arr[3]);//printing address and value of the element in the array
+     
+     
+      printf(" address of an array:%p %p\n",arr,&arr[5]);//printing address of an array
+     printf("address of fifth element %p\n value at index 4 %c\n",arr+4,arr[4]);//printing address and value of the element in the array
+     return 0;//return type
+}
+output:
+no. of elements in an array :5
+ address of an array:0x7ffc39c30213 0x7ffc39c30213
+address of first element 0x7ffc39c30213
+ value at index 0 a
+ address of an array:0x7ffc39c30213 0x7ffc39c30214
+address of second element 0x7ffc39c30214
+ value at index 1 b
+ address of an array:0x7ffc39c30213 0x7ffc39c30215
+address of third element 0x7ffc39c30215
+ value at index 2 c
+ address of an array:0x7ffc39c30213 0x7ffc39c30216
+address of fourth element 0x7ffc39c30216
+ value at index 3 d
+ address of an array:0x7ffc39c30213 0x7ffc39c30218
+address of fifth element 0x7ffc39c30217
+ value at index 4 e
+ 
+ 
+/*4 methods of initialiasing an Array*/   
+#include<stdio.h>//header file
+int main()//execution starts from here
+{ 
+    char arr[5] ={'a','b','c','d','e'};//initialization of first method in char type
+    int i;//declaration of int data type for loop iteration
+    for(i=0;i<5;i++)
+    {
+        printf("the values with in the index of %d is %c\n",i,arr[i]);//by using FOR loop, elements in the array are printed
+    }
+    return 0;//return type
+}
+output:
+the values with in the index of 0 is a
+the values with in the index of 1 is b
+the values with in the index of 2 is c
+the values with in the index of 3 is d
+the values with in the index of 4 is e
+
+
+#include<stdio.h>//header type
+#define SIZE_ARR 5// declaration of array size using macro
+int main()//execution starts from here
+{ 
+    char arr[] ={'a','b','c','d','e'};//initialization of second method in char type
+    int i;//declaration of int data type for loop iteration
+    for(i=0;i<SIZE_ARR;i++)
+    {
+        printf("the values with in the index of %d is %c\n",i,arr[i]);//by using FOR loop, elements in the array are printed
+    }
+    return 0;//rreturn type
+}
+output:
+the values with in the index of 0 is a
+the values with in the index of 1 is b
+the values with in the index of 2 is c
+the values with in the index of 3 is d
+the values with in the index of 4 is e
+
+
+#include<stdio.h>//header file
+int main()//execution starts from here
+{ 
+    int arr[4];//initialization of third method in char type
+    arr[0]=1;
+    arr[1]=2;
+    arr[2]=3;
+    arr[3]=4;
+    int i;//declaration of int type for loop iteration
+    for(i=0;i<4;i++)
+    {
+        printf("the values with in the index of %d is %d\n",i,arr[i]);//by using FOR loop, elements in the array are printed
+    }
+    return 0;//return type
+}
+output:
+the values with in the index of 0 is 1
+the values with in the index of 1 is 2
+the values with in the index of 2 is 3
+the values with in the index of 3 is 4
+
+
+#include<stdio.h>//header file
+int main()//execution starts from here
+{ 
+    int arr[4],i;//declaration of array and variable i in int data type
+     printf("enter the values of elements :");//printing statement
+    for(i=0;i<4;i++)
+    {   
+        scanf("%d",&arr[i]);//reading the elements
+    }
+     for(i=0;i<4;i++)
+     printf("the values with in the index of %d is %d\n",i,arr[i]);//by using FOR loop, elements in the array are printed
+    
+    return 0;//return type
+}
+output:
+enter the values of elements :1
+2
+3
+4
+the values with in the index of 0 is 1
+the values with in the index of 1 is 2
+the values with in the index of 2 is 3
+the values with in the index of 3 is 4
+
+
+/*print the values of all the elements of array using WHILE loop*/
+#include<stdio.h>//header file
+#define SIZE_ARR 6//declaring size of array using macros
+int main()//execution starts from here
+{ 
+    char arr[SIZE_ARR]={'a','b','c','d','e','f'};initialisation of array in char data type
+    int i=0; //initialisation of int data type  
+    while(i<SIZE_ARR)//loop condition
+    {    
+        
+        printf("The element of %dth index is %c\n",i,arr[i]);//output statement
+        i++;//incrementing of i value
+    } 
+    return 0;// return type
+}
+output:
+The element of 0th index is a
+The element of 1th index is b
+The element of 2th index is c
+The element of 3th index is d
+The element of 4th index is e
+The element of 5th index is f
+
+
+/*printing elements,positions and address ofthe vowels with in array of size 10 */   
+#include<stdio.h>//header file
+#define SIZE_ARR 10//declaration of array size using macros
+int main()//program execution starts from here
+{ 
+    char arr[SIZE_ARR]={'a','u','i','h','g','e','p','g','z','o'};//initialisation of array with char data type
+    int i;//declaration of int data type
+   
+     for(i=0;i<SIZE_ARR;i++)
+     {
+         if(arr[i]=='a'|| arr[i]=='e'|| arr[i]=='i'|| arr[i]=='o'|| arr[i]=='u')//condition to check whether element in the array is vowel or not 
+         {
+      printf("address of  element %p\n element is  %c\n position of element %c=%d\n" ,arr+i,arr[i],arr[i],i);//printing value, position and address of the element with in the array
+         }
+     }
+    return 0;//return type
+}
+ output:
+ address of  element 0x7fffa25a278e
+ element is  a
+ position of element a=0
+address of  element 0x7fffa25a278f
+ element is  u
+ position of element u=1
+address of  element 0x7fffa25a2790
+ element is  i
+ position of element i=2
+address of  element 0x7fffa25a2793
+ element is  e
+ position of element e=5
+address of  element 0x7fffa25a2797
+ element is  o
+ position of element o=9
+ 
+ 
+ /*find the second largest element in array*/
+ #include<stdio.h>//header file
+#define SIZE_ARR 6//declaration of array size using macros
+int main()//execution starts from here
+{ 
+    int arr[SIZE_ARR];//declaration of array in int data type
+   
+    for(int i=0;i<SIZE_ARR;i++)//FOR loop for reading the given elements with in the array
+    scanf("%d",&arr[i]);//reading elements
+   int  max=arr[0];//initialising maximum value with first index of array
+    for(int i=0;i<SIZE_ARR;i++)//FOR loop to enter into condition for getting max value
+    {
+        if(arr[i]>max)//checks the condition to obtain max value with in the array elements
+        {
+            max=arr[i];//assigning max array element to MAX 
+        }
+    }
+        printf(" max value with in the array =%d\n",max);//now printing the maximum value
+        int sec_max=arr[0];//initialising sec maximum value with first index of array
+         for(int i=0;i<SIZE_ARR;i++)//FOR loop to enter into condition for getting second max value
+         {
+            if(arr[i]>sec_max && arr[i]!=max)//checks the condition to obtain sec max value with in the array elements
+        {
+            sec_max=arr[i];//assigning sec max array element to MAX 
+        }
+         }
+        printf(" second max value with in the array = %d",sec_max);//now printing the maximum value
+         
+    return 0;//return type
+}
+output:
+34
+54
+28
+76
+45
+89
+ max value with in the array =89
+ second max value with in the array = 76
+
+
+
+ 
