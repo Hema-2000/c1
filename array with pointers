@@ -31,14 +31,13 @@ the value after adding odd positions of array: 30
 int main() //execution starts from here
 {
     int arr[N]={10,12,16,18,20};//initialisation of array with int data type
-    int sum=0;//declaration of int data type
     int *ptr;//declaration of pointer
     ptr=arr;//assigning array to pointer
     int temp;//declarating temp variable
    for(int i=0;i<N/2;i++)//for loop to iterate
    {
      temp=ptr[i];//first index value is assigned to temp
- ptr[i]=ptr[N-(i+1)];//(size -index+1 ) is assigned to respective pointer
+     ptr[i]=ptr[N-(i+1)];//(size -index+1 ) is assigned to respective pointer
      ptr[N-(i+1)]=temp;//finally this pointer value is assigned to temp for swapping
    }
    for(int i=0;i<N;i++)//for loop to print the output
