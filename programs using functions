@@ -1,0 +1,199 @@
+/*swap with temp using functions */ 
+
+
+#include <stdio.h>//header file
+void swap(int a,int b)//declaration & defnition  of function
+{
+    int temp;//initialisation of temp with int data type
+    temp = a;//a is assigned to temp
+    a = b;//b is assigned to a
+    b = temp;//temp is assigned to b - logic for swapping
+    printf("\nafter swaping x=%d,y=%d",a,b);//after swapping the values are print
+}
+int main()//execution starts from here
+{
+    int x,y;//declaration of x and y in int data type
+    printf("enter the x and y values:");//print statement
+    
+        scanf("%d %d",&x,&y);//to read the values
+        printf("before swapping  x=%d,y=%d ",x,y);//before swapping print statement
+        swap(x,y);//calling function   
+    return 0;//return statement
+}
+output:
+enter the x and y values:20
+30
+before swapping  x=20,y=30 
+after swaping x=30,y=20
+
+
+
+/*program to swap without using temp variables using functions*/
+
+#include <stdio.h>//header file
+void swap(int a,int b)//declaration & defnition  of function
+{
+{
+    a=a+b;//logic for swapping without temp
+    b=a-b;
+    a=a-b;
+    printf("\nafter swaping x=%d,y=%d",a,b);//print statement
+}
+int main()
+{
+    int x,y;//declaration of x and y in int data type
+    printf("enter the x and y values:");//print statement
+    scanf("%d %d",&x,&y);//to read the values
+    printf("before swapping  x=%d,y=%d ",x,y);//to print the values before swapping
+    swap(x,y);//calling function     
+    return 0;//return type
+}
+output:
+enter the x and y values:40
+50
+before swapping  x=40,y=50 
+after swaping x=50,y=40
+
+
+
+/*program to pass by reference for swap*/
+#include <stdio.h>//header file
+int swap(int *a,int *b)//declaration & defnition  of function
+{
+    int temp;//logic for swapping with temp but by using reference to pass 
+    temp = *a;
+    *a = *b;
+   *b = temp;
+    printf("\nafter swaping x=%d,y=%d",*a,*b);//print statement after applying logic
+    return 0;//return type
+}
+
+}
+int main()
+{
+    int x,y;//declaration of x and y in int data type
+    printf("enter the x and y values:");//print statement
+    
+        scanf("%d %d",&x,&y);//to read the values
+        printf("before swapping  x=%d,y=%d ",x,y);//to print the values before swapping
+        swap(&x,&y);//calling function 
+        printf("\nafter swaping x=%d,y=%d",x,y);// to print the values after swapping-it is possible becoz it is call by ref
+    return 0;///rreturn type
+}
+output:
+enter the x and y values:3
+4
+before swapping  x=3,y=4 
+after swaping x=4,y=3
+after swaping x=4,y=3
+
+
+/*program to check the frequency of an elements within the array without using functions */
+
+#include <stdio.h>//header file
+int main()//execution starts from here
+{
+int i,j;//declaration of 2 integer values
+int a[] = {3, 2, 4, 2, 2,1};//initialisation of integer array 
+int b[] ={0,0,0,0,0,0};//initialisation of integer array to zeros to avaoid garbage values
+for(i=0;i<6;i++)//loop to iterate over array
+{
+    int count=1;//initialisation of count to 1 becoz every element occurs atleast once
+    for(j=i+1;j<6;j++)//loop to start from 2nd element of array
+    {
+        if(a[i]==a[j])//condition to check whetherelements are equal or not
+        {
+        count++;//if elements are equal count increases
+        b[j]=-100;//making array value as negative so that we cant accaess the element
+    }
+    
+}
+  if(b[i]!=-100)//condition to check if the second array is not equal to -100 
+  
+  b[i]=count;//assign count to index of second array 
+}
+    for(i=0;i<6;i++)//loop to iterate
+    
+    {
+         if(b[i]!=-100)//condition to check the second array may contain negative value or not
+        
+        printf("frequency  of %d index element %d is:%d\n",i,a[i],b[i]);//print statement to get the frequency of elements with in the array
+        
+    }
+    return 0;//return type
+    }
+output:
+frequency  of 0 index element 3 is:1
+frequency  of 1 index element 2 is:3
+frequency  of 2 index element 4 is:1
+frequency  of 5 index element 1 is:1
+
+
+
+
+/*write program with fns, passing array as parameter and reverse the array- write one more fun to print thr reversed array*/
+
+#include <stdio.h>//header file
+void reverse(int arr[],int size)//declaration and defnition of function
+{
+int i;//declaration of i
+for(i=0;i<size/2;i++)//loop to iterate
+{
+    int temp;//logic to reverse the array elements
+    temp=arr[i];
+    arr[i]=arr[size-(i+1)];
+    arr[size-(i+1)]=temp;
+    
+}
+}
+void print(int arr[], int size)//declaration and defnition of function to print reverse elements
+{
+    int i;//declaration of i
+ printf("\nafter reversing the elements are:");//print statement
+    for(i=0;i<size;i++)//loop to iterate
+   
+    printf("%d ",arr[i]);to print output as reverse elements
+
+} 
+int main()//execution starts from here
+{   int i;//declaration of i
+    int arr[5]={20,30,40,50,60};//iniyialisation of array
+    int size=sizeof(arr)/sizeof(int);//to calculate the size
+     printf("before reversing the elements are:");//print statement
+    for(i=0;i<size;i++)//loop to iterate
+   
+    printf("%d ",arr[i]);//to print before reversing
+    
+    reverse(arr,size);//calling function to reverse the elements
+    print(arr,size);//calling function to print the reverse elements
+
+    return 0;//return type
+}
+output:
+before reversing the elements are:20 30 40 50 60 
+after reversing the elements are:60 50 40 30 20
+
+
+/*program  with fun to cont sum of elements in an array and return the sum*/
+
+#include <stdio.h>//header file
+int soa(int *arr,int size)//defnition and declation of function
+{
+int i,sum=0;//declaration of int data type
+for(i=0;i<size;i++)//for loop to iterate
+{
+    sum+=*(arr+i);//lodic to sum the elements in array
+}
+   // printf("%d\n",sum);//print the sum
+    return sum;//retun the sum
+}   
+int main()//execution starts from here
+{   int i,res;//declaration int data type
+    int arr[5]={20,30,40,50,60};initialisation of  array
+    int size=sizeof(arr)/sizeof(int);//find the size
+     res=soa(arr,size);//calling function
+     printf("the sum of elements in an array is %d",res);//print the result by return sum statement
+    return 0;//return type
+}
+output:
+the sum of elements in an array is 200 
