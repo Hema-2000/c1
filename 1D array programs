@@ -1,0 +1,184 @@
+/*program to find second largest element in an array*/
+
+#include <stdio.h>//header file
+int secondLargest(int *arr,int size)//function declaration and defnition
+{
+    int i, firstlargest=0, secondlargest=0;
+    for(i=1;i<size;i++)//loop to iterate within the array
+{
+        if(arr[i]>firstlargest)//condition to check the array element is greater then 1st element or not
+        {
+            secondlargest=firstlargest;//if condition is true 1st element is assigned to 2nd largest
+            firstlargest=arr[i];//and then present element is assigned to first largest element
+        }
+        
+    }
+    printf("%d is second largest",secondlargest);//printing statement for second largest element
+}
+
+int main()//execution starts from here
+{
+    int size,i,*arr;//declaration of int data type
+    printf("Enter number of Elements in an array \n");//our console is to enter the size of elements
+    scanf("%d", &size);//reading statement
+    printf("please enter the array elements \n");//our console is to enter the array elements
+    for(i=0; i<size; i++)//loop to read elements within the array 
+{
+        scanf("%d",&arr[i]);//reading statement
+    }
+    secondLargest(arr,size);//calling function 
+    return 0;   //return statement 
+} 
+output:
+please enter the array elements 
+6 7 8 9 5
+8 is second largest
+
+
+/*program to find sum of an array using recursion*/
+#include <stdio.h>//header file
+int sum_arr(int arr[],int start,int len)//defnition and declaration of function
+{
+   if(start>=len)//start is assigned to 0 if it is greater than lenth then return 0
+   return 0;
+   else//otherwie
+   return arr[start]+sum_arr(arr,start+1,len);//return sum
+    
+}
+int main()//execution starts from here
+{
+    int arr[]={1,2,3,4,5};//initialisation of array
+    int len=5;//initialisation of length
+    int res;//declaration of result
+     int start=0;//initialisation of start with int data type
+    res=sum_arr(arr,start,len);//calling function
+    printf("sum of elements in an array:%d",res);//print the result
+
+return 0;//return type
+}
+output:
+sum of elements in an array:15
+
+
+/*program to count odd and even elements in an array*/
+
+#include <stdio.h>//header file
+int oddeven(int *arr,int size)defnition and declaration of  function
+{
+    int count_odd =0, count_even = 0;//initialisation of int data type
+for(int i = 0; i < size; i++)//llop to iterate within the array
+{
+if(arr[i] % 2 == 1)//condition to check weather even or odd no.
+count_odd++;//count inceases if odd
+else//otherwise
+count_even++;//count increases if even
+}
+printf("Odd: %d",count_odd);//printing statement for odd
+printf("\nEven: %d",count_even);//printing statement for even
+return 0;//return type
+}
+int main()//execution starts from here
+{
+    int size,i,*arr;//declaration of int data type
+    printf("Enter number of Elements in an array \n");//printing statement to enter the size of an array
+    scanf("%d", &size);//reading statement
+    printf("please enter the array elements \n");//printing statement to enter the elements in an array
+    for(i=0; i<size; i++)//loop to iterate with in the array
+{
+        scanf("%d",&arr[i]);//reading the elements
+    }
+    oddeven(arr,size);//calling function
+    return 0; //return type   
+} 
+output:
+Enter number of Elements in an array 
+5
+please enter the array elements 
+3 4 5 7 8
+Odd: 3
+Even: 2
+
+
+/*program to count negative no. of elements with in an array*/
+
+#include <stdio.h>//header file
+int negative(int *arr,int size)//definition and declaration of function
+{
+    int i, c=0;//declaration of int data type
+   for(i=0; i<size; i++)//loop to iterate with in the array
+    {
+        if(arr[i] < 0)//condition to check the negative no.
+         c++;//count increases if negative no. finds
+    }
+         printf("  count  of negative numbers  in array: %d",c);//printing statement for counting of negative numbers 
+    return 0;//return type
+}
+int main()//execution starts from here
+{
+    int size,i,*arr;//declaration of int data type
+    printf("Enter number of Elements in an array \n");//printing statement to enter the size
+    scanf("%d", &size);//reading statement
+    printf("please enter the array elements \n");//printing statements for entering the elements
+    for(i=0; i<size; i++)//loop to iterate the array
+{
+        scanf("%d",&arr[i]);//reading statement for printing elements 
+    }
+    negative(arr,size);//calling function
+    return 0; //return function   
+} 
+output:
+Enter number of Elements in an array 
+5
+please enter the array elements 
+4 -8 7 -9 2
+  count  of negative numbers  in array: 2
+
+
+/*program  to copy the elements from one array to array*/
+
+#include <stdio.h>//header file
+int copy(int *arr1,int size)//definition and declaration of function
+{   
+   int arr2[size]; //declaration of array in data type  
+     for (int i = 0; i < size; i++)//loop to iterate
+     {     
+        arr2[i] = arr1[i];//array 1 elements is copied to array2     
+    }      
+        
+    printf("Elements of original array: \n"); //Displaying elements of array arr1    
+    for (int i = 0; i < size; i++)
+    {     
+        printf("%d ", arr1[i]);    
+    }  
+      printf("\n");    
+    printf("Elements of new array: \n");  //Displaying elements of array arr2        
+    for (int i = 0; i < size; i++)
+    {     
+        printf("%d ", arr2[i]);    
+    }    
+ 
+    return 0;//return type
+}
+
+int main()//execution starts from here
+{
+    int size,i,*arr1;//declaration of int data type
+    printf("Enter number of Elements in an array \n");//print statement to enter the size of array
+    scanf("%d", &size);//reading statement
+    printf("please enter the array elements \n");print statement to enter the elements in the array
+    for(i=0; i<size; i++)//loop to iterate
+{
+        scanf("%d",&arr1[i]);
+    }
+    copy(arr1,size);//calling function
+    return 0;   //return function 
+} 
+output:
+Enter number of Elements in an array 
+6
+please enter the array elements 
+6 7 5 4 9 8
+Elements of original array: 
+6 7 5 4 9 8 
+Elements of new array: 
+6 7 5 4 9 8 
