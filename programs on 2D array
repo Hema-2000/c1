@@ -1,0 +1,52 @@
+/*program to pass 2D array as a parameter*/
+
+#include <stdio.h>//header file
+#define x  3//macros function
+#define y  3//macros function
+ 
+void print(int arr[x][y])//defnition and declaration of function
+{
+    int i, j;
+    for (i = 0; i < x; i++)
+      for (j = 0; j < y; j++)
+        printf("%d ", arr[i][j]);//printing statement for elements
+}
+ 
+int main()//execution starts from here
+{
+    int arr[][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};//initialisation  of array of int data type
+    print(arr);//calling function
+    return 0;//return type
+}
+output:
+1 2 3 4 5 6 7 8 9
+
+/*program to sum all the elements within the 2D array*/
+
+#include <stdio.h>//header file
+#define ROW 2//declaration of macros(rows)
+#define COL 3//declaration of macros(columns)
+
+int sum(int(*array)[3]);//declaration  of function 
+
+int main(void)//execution starts from here
+{
+    int a[ROW][COL] = { {1 , 2, 3} ,//initialisation of rows and columns
+                        {4 , 5, 6} };
+    printf(" sum = %d\n", sum (a));//print statement for output
+    return 0;//return statement
+}
+int sum(int(*array)[3]) //definition of function
+{
+    int i,j, sum = 0;//declaration of int data type
+    for (i =0; i < ROW ; i ++) //loop fpr row
+{
+        for (j =0; j < COL ; j ++)//loop for column
+ {
+            sum = sum + *(*( array +i )+j);//formula for sum
+        }
+    }
+    return sum; //return the sum
+}
+output:
+sum = 21
