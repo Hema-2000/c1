@@ -1,0 +1,98 @@
+#include <stdio.h>
+#include <string.h>
+#define SIZE 20
+void string_length(char name[])
+{
+    int i=0,count=0;
+    while(name[i]!='\0')
+    {
+        count++;
+        i++;
+    }
+
+ printf("the length of the string is %d",count);
+}
+void main()
+{
+    char name[SIZE];
+     int count;
+    printf("enter name:");
+   scanf("%[^\n]s",name);
+   string_length(name);
+
+}
+
+
+enter name:hema latha               
+the length of the string is 10
+
+
+
+
+
+
+
+#include <stdio.h>
+#include <string.h>
+#define SIZE 20
+void string_copy(char name1[],char name2[])
+{
+    int i=0;
+   for(i=0;name1[i]!='\0';i++)
+    {
+        name2[i]=name1[i];
+       
+    }
+       name2[i]='\0';
+ printf("the copied string is %s",name2);
+}
+void main()
+{
+    char name1[SIZE];
+    char name2[SIZE];
+    
+    printf("enter name1:");
+   scanf("%[^\n]s",name1);
+   string_copy(name1,name2);
+
+}
+
+
+enter name1:hema latha
+the copied string is hema latha
+
+
+
+
+#include <stdio.h>
+#include <string.h>
+#define SIZE 20
+void string_cat(char name1[],char name2[])
+{
+    int i=0,j=0;
+   while(name1[i]!='\0')
+     i++;
+  while(name2[j]!='\0')
+  {
+    name1[i]=name2[j];
+    j++;
+    i++;
+  }
+  name1[i]='\0';
+ printf("after concatination the string is %s",name1);
+}
+void main()
+{
+    char name1[SIZE];
+    char name2[SIZE];
+    
+    printf("enter name1 and name2:");
+   scanf("%[^\n]s,%[^\n]s",name1,name2);
+   
+   string_cat(name1,name2);
+
+}
+
+
+enter name1 and name2:hema latha
+after concatination the string is hema latha
