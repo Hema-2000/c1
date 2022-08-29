@@ -1,0 +1,48 @@
+#include<stdio.h>
+#define len 50
+int raghu_strcmp(char [],char []);//fun declaration 
+int main()
+{
+    char s1[len],s2[len];//declaring two strings
+    int cmp;//declaring the cmp variable
+    printf("enter a string:");
+    scanf("%s",s1);
+    printf("enter a string:");
+    scanf("%s",s2);
+    cmp=hema_strcmp(s1,s2);
+    if(cmp==0)
+    {
+        printf("given strings are same");
+    }
+    else
+    {
+        printf("given strings are not same");
+    }
+}
+int hema_strcmp(char h[],char c[])
+{
+    int i=0,c=0;//declaring and initializing
+    while(h[i]!='\0' && c[i]!='\0')//while loop to check the characters of the strings 
+    {
+        if(h[i]!=c[i])
+        {
+            c=1;//c as assigned with value 1
+            break;
+        }
+        i++;
+    }
+    if(c==0)
+        return 0;
+    else
+        return 1;
+}
+
+output:
+
+enter a string:hemalatha
+enter a string:hemalatha
+given strings are same
+
+enter a string:hemalatha
+enter a string:chandaka
+given strings are not same
