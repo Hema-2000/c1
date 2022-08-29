@@ -1,3 +1,5 @@
+/*program to find the length of the string*/
+
 #include <stdio.h>
 #include <string.h>
 #define SIZE 20
@@ -21,7 +23,7 @@ void main()
    string_length(name);
 
 }
-
+output:
 
 enter name:hema latha               
 the length of the string is 10
@@ -30,7 +32,7 @@ the length of the string is 10
 
 
 
-
+/*program to copy the string */
 
 #include <stdio.h>
 #include <string.h>
@@ -57,12 +59,12 @@ void main()
 
 }
 
-
+output:
 enter name1:hema latha
 the copied string is hema latha
 
 
-
+/*program to combine the strings*/
 
 #include <stdio.h>
 #include <string.h>
@@ -93,6 +95,6 @@ void main()
 
 }
 
-
+output:
 enter name1 and name2:hema latha
 after concatination the string is hema latha
