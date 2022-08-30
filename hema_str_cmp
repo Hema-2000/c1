@@ -1,6 +1,6 @@
 #include<stdio.h>
 #define len 50
-int raghu_strcmp(char [],char []);//fun declaration 
+int hema_strcmp(char [],char []);//fun declaration 
 int main()
 {
     char s1[len],s2[len];//declaring two strings
