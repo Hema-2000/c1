@@ -1,0 +1,32 @@
+#include <stdio.h>//header file
+int max_value(int arr[],int size)//passing array & size  as a parameters
+{
+    int large =arr[0];//consider starting element as large
+    for(int i=0;i<size;i++)//loop to iterate
+    {
+        if(arr[i]>large)//condition to check every element in an array is greater than large or not
+        large=arr[i];//if it is greater than large then that element is assigned to large
+    }
+    return large;//return large to main statement
+}
+int min_value(int arr[],int size)//passing array & size  as a parameters
+{
+    int small =arr[0];//consider starting element as small
+    for(int i=0;i<size;i++)//loop to iterate
+    {
+        if(arr[i]<small)//condition to check every element in an array is less than small or not
+        small=arr[i];//if it is less than small then that element is assigned to small
+    }
+    return small;//return small to main statement
+}
+int main()//execution starts here
+{
+    int arr[]={20,10,5,40,50};//initialisation of array (int data type)
+    int size=sizeof (arr)/sizeof arr[0];//formula to find the size of an array
+    printf("max value in an array is : %d\n",max_value(arr,size));//to print the output as max value by calling the fun
+     printf("min value in an array is : %d",min_value(arr,size));//to print the output as min value by calling the fun
+    return 0;//return type
+}
+output:
+max value in an array is : 50
+min value in an array is : 5
