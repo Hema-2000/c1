@@ -1,0 +1,26 @@
+#include <stdio.h>//header file
+int second_largest_value(int arr[],int size)//passing array and size as parameters
+{
+    int large=arr[0];//assigning first element as large
+    for(int i=0;i<size;i++)//loop to iterate
+    {
+        if(arr[i]>large)//condition to check each element in an array is greater than large or not
+        large=arr[i];//if condition is satisfied that element is assigned to large
+    }
+    int second_large=arr[0];//assigning first element as second large
+     for(int i=0;i<size;i++)//loop to iterate
+     {
+         if(arr[i]>second_large && arr[i]<large)//condition to check each is greater than secon large and less than large
+         second_large=arr[i];//if condition is satisfied that element is assigned to second large
+     }
+    return second_large;//return second large to main function
+}
+int main()//execution starts here
+{
+    int arr[]={35,10,5,65,50};//initialisation of array (int data type)
+    int size=sizeof (arr)/sizeof arr[0];//formula to find the size of an array
+    printf("second largest value in an array is : %d\n",second_largest_value(arr,size));//to print the output as second largest element
+    return 0;//return type
+}
+output:
+second largest value in an array is : 50
