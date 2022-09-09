@@ -1,0 +1,18 @@
+#include <stdio.h>//header file
+int sum_of_elements(int arr[],int size)//passing array & size  as a parameters
+{
+   
+        if(size<=0)//condition to check the size of array if it is 0 then retuen 0 to main fun
+        return 0;
+        else
+        return (sum_of_elements(arr,size-1)+arr[size-1]);//function contains another fun called recursion
+        //above statement determines the addition of elements by calling the fun repeatedly
+}
+int main()//execution starts here
+{
+    int arr[]={20,10,30,40,50};//initialisation of array (int data type)
+    int size=sizeof (arr)/sizeof arr[0];//formula to find the size of an array
+    int total sum=sum_of_elements(arr,size);//calling function
+    printf("sum of an array elements : %d",total sum);//to print the output sum
+    return 0;//return type
+}
