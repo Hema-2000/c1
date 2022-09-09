@@ -16,3 +16,5 @@ int main()//execution starts here
     printf("sum of an array elements : %d",total sum);//to print the output sum
     return 0;//return type
 }
+output:
+sum of an array elements : 150
