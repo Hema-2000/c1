@@ -1,0 +1,33 @@
+#include <stdio.h>//header file
+int delete(int arr[],int size)//function defnition and declaration 
+{
+    int pos;//declaration of postion in int data type
+    printf("enter the position for deletion: ");//printing statement
+    scanf("%d",&pos);//reading statement
+    for(int i=pos-1;i<size-1;i++)//llop tpo iterate with in the array
+    {
+        arr[i]=arr[i+1];//depending on the position elements are assigned to left side of the array
+    }
+    printf("the resultant array : ");//printing statement
+    for(int i=0;i<size-1;i++)//loop to iterate
+    {
+        printf("%d ",arr[i]);//output statement
+    }
+}
+
+int main()//execution starts from here
+{
+    int arr[10];//declaration of source array
+    int size=sizeof (arr)/sizeof(arr[0]);//formula to find size of an array
+    printf("enter the elements in an array ");//printing statement
+    for (int i=0;i<size;i++)//loop to iterate
+    {
+        scanf("%d",&arr[i]);//reading statement
+    }
+    delete(arr,size);//calling function
+    return 0;//return type
+}
+output:
+enter the elements in an array 10 20 30 40 50 60 70 80 90 100
+enter the position for deletion: 4
+the resultant array : 10 20 30 50 60 70 80 90 100 
