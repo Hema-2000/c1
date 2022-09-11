@@ -1,0 +1,46 @@
+#include <stdio.h>//header file
+int even_num(int arr[],int size)//function defnition and declaration
+{
+    int even_count=0;//assign even count as 0
+    for(int i=0;i<size;i++)//loop to iterate
+    {
+    if(arr[i]%2==0)//condition to check even number
+    
+    {
+    even_count++;//if condition satisfies even count increases
+    }
+    }
+    
+    return even_count;//retun even count to main function
+}
+int odd_num(int arr[],int size)//function defnition and declaration
+{
+    int odd_count=0;//assign odd count to 0
+    for(int i=0;i<size;i++)//loop to iterate
+    {
+    if(arr[i]%2!=0)//condition to check odd number
+    {
+    odd_count++;//if condition satisfies odd count increases
+    }
+    }
+    
+    return odd_count;//odd count returns to main
+}
+int main()//execution starts from here
+{
+    int arr[10];//declaration of array in int data type
+    int size=sizeof (arr)/sizeof(arr[0]);//formula to find size of an array
+    printf("enter the elements in an array");//printing statement
+    for (int i=0;i<size;i++)//loop to iterate
+    {
+        scanf("%d",&arr[i]);//reading statement
+    }
+    
+     printf("the count of even numbers in an array : %d\n",even_num(arr,size));//calling function and print the output
+     printf("the count of odd numbers in an array : %d",odd_num(arr,size));//calling function to print the output
+    return 0;//return type
+}
+output:
+enter the elements in an array4 3 7 6 23 54 77 89 33 1 9
+the count of even numbers in an array : 3
+the count of odd numbers in an array : 7
