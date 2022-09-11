@@ -1,0 +1,38 @@
+#include <stdio.h>//header file
+int copying(int src_arr[],int dst_arr[],int size)//function defnition and declaration
+{
+   printf("these are the elements in dest array ");//printing statement
+    for(int i=0;i<size;i++)//loop to iterate
+    {
+    dst_arr[i]=src_arr[i];//assigning source array to destination array
+    printf("%d ",dst_arr[i]);// printing of destination elements
+    }
+}
+void print( int src_arr[],int size)//function to print the source array elements
+{
+    for(int i=0;i<size;i++)//loop to iterate
+    {
+        printf("%d ", src_arr[i]);//printing of source elements
+   }
+    printf("\n");//for new line
+}
+
+int main()//execution starts from here
+{
+    int src_arr[5];//declaration of source array
+    int dst_arr[5];//declaration of destination array in int data type
+    int size=sizeof (src_arr)/sizeof(src_arr[0]);//formula to find size of an array
+    printf("enter the elements in an array ");//printing statement
+    for (int i=0;i<size;i++)//loop to iterate
+    {
+        scanf("%d",&src_arr[i]);//reading statement
+    }
+    printf("these are all the elements in source array ");//printing statement
+    print(src_arr,size);//calling fun to print source elements
+    copying(src_arr,dst_arr,size);//calling fun to copy the elements from src to dest
+    return 0;//return type
+}
+output:enter the elements in an array 1 2 3 4 5
+these are all the elements in source array 1 2 3 4 5 
+these are the elements in dest array 1 2 3 4 5 
+
