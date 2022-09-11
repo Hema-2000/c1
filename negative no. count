@@ -1,0 +1,33 @@
+#include <stdio.h>//header file
+int negative_num(int arr[],int size)//function defnition and declaration
+{
+    int neg_count=0;//assign negative count as 0
+    for(int i=0;i<size;i++)//loop to iterate
+    {
+    if(arr[i]<0)//condition to check negative number
+    
+    {
+    neg_count++;//if condition satisfies negative count increases
+    }
+    }
+    
+    return neg_count;//retun negative count to main function
+}
+
+int main()//execution starts from here
+{
+    int arr[10];//declaration of array in int data type
+    int size=sizeof (arr)/sizeof(arr[0]);//formula to find size of an array
+    printf("enter the elements in an array");//printing statement
+    for (int i=0;i<size;i++)//loop to iterate
+    {
+        scanf("%d",&arr[i]);//reading statement
+    }
+    
+     printf("the count of negative numbers in an array : %d\n",negative_num(arr,size));//calling function and print the output
+    return 0;//return type
+}
+output:
+enter the elements in an array2 -4 3 -2 5 -5 6 -6 0 7 
+the count of negative numbers in an array : 4
+
