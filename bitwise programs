@@ -1,0 +1,40 @@
+setting pos1 and pos2 and printing result
+
+#include <stdio.h>
+
+int main()
+{
+    int num,pos1,pos2,res=0,res2,res1=0;
+    printf("enter the num");
+    scanf("%d",&num);
+    printf("enter the num");
+    scanf("%d",&pos1);
+    printf("enter the num");
+    scanf("%d",&pos2);
+    res=num|(1<<pos1-1);
+    res1=num|(1<<pos2-1);
+    res2=res|res1;
+   printf("%d",res2);
+}
+   
+unsetting pos1 and pos2 and printing result
+#include <stdio.h>
+
+int main()
+{
+    int num,pos1,pos2,res=0,res2,res1=0;
+    printf("enter the num");
+    scanf("%d",&num);
+    printf("enter the num");
+    scanf("%d",&pos1);
+    printf("enter the num");
+    scanf("%d",&pos2);
+    res=num^(1<<pos1-1);
+    res1=num^(1<<pos2-1);
+    res2=res&res1;
+   printf("%d",res2);
+}
+    
+
+    
+    
