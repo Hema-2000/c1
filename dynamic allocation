@@ -1,0 +1,19 @@
+/*create dynamic allocation and pass it to the function and the variable value in the function*/
+
+#include <stdio.h>
+#include <stdlib.h>
+int fun(int *ptr)
+{
+    *ptr=500;
+
+    printf("%d",*ptr);
+}
+
+int main()
+{
+   
+ int *ptr= malloc(sizeof(int));
+ *ptr=600;
+ fun(ptr);
+    return 0;
+}
