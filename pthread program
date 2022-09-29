@@ -1,0 +1,21 @@
+#include<stdio.h>
+#include<pthread.h>
+int ed()
+{
+    int n;
+    printf("enter the value of n");
+    scanf("%d",&n);
+    if(n%2==0)
+    {
+        printf("even");
+    }
+    else
+    printf("odd");
+    
+}
+int main()
+{
+    pthread_t even;
+    pthread_create(&even,NULL,ed,NULL);
+    pthread_join(even,NULL);
+}
