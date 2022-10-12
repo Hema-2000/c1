@@ -24,3 +24,25 @@ int main()
     }
     fclose(fp);
 }
+
+
+
+/*r+mode*/
+
+#include <stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main()
+{
+    FILE *fp=NULL;
+    char str[50];
+    fp=fopen("abc.txt","r+");
+    if(fp==NULL)
+    {
+        printf("error");
+        exit(1);
+    }
+    fputs("chandaka",fp);//rewrite the content at begining after that previous content also there
+    fputc('i',fp);//this char will print after chandaka
+    fclose(fp);
+}
