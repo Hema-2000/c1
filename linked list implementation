@@ -1,0 +1,158 @@
+#include <stdio.h>
+#include<stdlib.h>
+int count=0;
+struct node
+{
+    int data;
+    struct node *next;
+}*head;
+void create()
+{   int num;
+    struct node *temp,*newnode;
+      head=0;
+    newnode=(struct node *)malloc(sizeof(struct node));
+    printf("enter the data to create");
+    scanf("%d",&newnode->data);
+    newnode->next=0;
+    if(head==0)
+    {
+        head=temp=newnode;
+    }
+    else
+    {
+        temp->next=newnode;
+        temp=newnode;
+    }
+    printf("do u want to create anothe node?");
+    scanf("%d",&num);
+    if(num!=0)
+    create();
+}
+/*struct node *temp;
+
+    // Return if list is empty 
+    if(head == NULL)
+    {
+        printf("List is empty.");
+        return;
+    }
+    else
+    {
+    temp = head;
+    while(temp != NULL)
+    {
+        printf("Data = %d\n", temp->data); // Print data of current node
+        temp = temp->next;                 // Move to next node
+    }
+    }*/
+void display()
+{
+    struct node *temp;
+    temp=head;
+    while(temp !=NULL)
+    {
+        printf("%d",temp->data);
+        temp=temp->next;
+    }
+   
+}
+void beg_insert()
+{
+    struct node *temp,*newnode;
+   newnode=(struct node *)malloc(sizeof(struct node));
+    printf("enter the data to insert");
+    scanf("%d",&newnode->data);
+    newnode->next=0;
+    newnode->next=head;
+    head=newnode;
+}
+ void end_insert()
+ {
+     struct node *temp,*newnode;
+    newnode=(struct node *)malloc(sizeof(struct node));
+    printf("enter the data to insert");
+    scanf("%d",&newnode->data);
+    newnode->next=0;
+    temp=head;
+    while(temp->next!=0)
+    {
+        temp=temp->next;
+    }
+    temp->next=newnode;
+ }
+ void middle_insert()
+ { 
+     struct node *temp,*newnode;
+     int pos,i=1;
+    newnode=(struct node *)malloc(sizeof(struct node));
+    if(pos>count)
+    {
+        printf("invalid position");
+    }
+    else 
+    {
+    printf("enter the data to insert");
+    scanf("%d",&newnode->data);
+    temp=head;
+    while(i<pos)
+    {
+        temp=temp->next;
+        i++;
+    }
+    newnode->next=temp->next;
+    temp->next=newnode;
+    }
+ }
+int main()
+{
+    int choice;
+    printf("\n\t LINKED LIST OPERATIONS USING ARRAY");
+     printf("\n\t 1.CREATE \n\t 2.DISPLAY \n\t 3.BEG_INSERT\n\t 4.END_INSERT\n\t 5.MID_INSERT\n\t 6.EXIT");
+      do
+    {
+        printf("\n Enter the Choice:");
+        scanf("%d",&choice);
+        switch(choice)
+        {
+            case 1:
+            {
+                create();
+                break;
+            }
+            case 2:
+            {
+                display();
+                break;
+            }
+            case 3:
+            {
+                beg_insert();
+                break;
+            }
+            
+            case 4:
+            {
+                end_insert();
+                break;
+            }
+            case 5:
+            {
+                middle_insert();
+                break;
+                
+            }
+            case 6:
+            {
+                printf("exit point");
+                break;
+            }
+             default:
+            {
+                printf ("\n\t Please Enter a Valid Choice(1/2/3/4/)");
+            }
+            }
+            }
+
+            while(choice!=4);
+    return 0;
+}
