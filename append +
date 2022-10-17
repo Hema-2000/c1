@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main()
+{
+    FILE *fp=NULL;
+    char str[50];
+    char ch;
+    fp=fopen("abc.txt","a+");
+    if(fp==NULL)
+    {
+        printf("error");
+        exit(1);
+    }
+    fputs("hema",fp);
+    rewind(fp);//to read operation we have to use rewind so that curser will be at starting
+    while(!feof(fp))
+    {
+        ch=fgetc(fp);//reading of data is not possible because curser is at end (if we use rewind it is possible)
+        printf("%c",ch);
+    }
+    
+    fclose(fp);
+}
