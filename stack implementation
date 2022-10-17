@@ -1,0 +1,100 @@
+#include <stdio.h>
+#define N 5
+int stack[N];
+int top=-1;//represents empty stack
+void push()
+{
+    int x;
+    printf("enter the data");
+    
+    scanf("%d",&x);
+   
+    if(top==N-1)//to check stack is empty or not
+    {
+        printf("overflow");
+    }
+    else//if stack is empty
+    {
+        top++;
+        stack[top]=x;
+    }
+}
+void pop()
+{
+    int item;
+    if(top==-1)
+    {
+        printf("underflow");
+    }
+    else
+    {
+        item=stack[top];
+        top--;
+        printf("the popped value is %d",item);
+    }
+}
+void peak()
+{
+    if(top==-1)
+    {
+        printf("stack is empty");
+    }
+    else
+    {
+        printf("%d",stack[top]);
+    }
+}
+ void display()
+ {
+     int i;
+     for(i=top;i>=0;i--)
+     {
+         printf("%d\n",stack[i]);
+     }
+ }
+int main()
+{
+    int choice;
+    printf("\n\t STACK OPERATIONS USING ARRAY");
+     printf("\n\t 1.PUSH\n\t 2.POP\n\t 3.DISPLAY\n\t 4.PEAK\n\t 5.EXIT");
+      do
+    {
+        printf("\n Enter the Choice:");
+        scanf("%d",&choice);
+        switch(choice)
+        {
+            case 1:
+            {
+                push();
+                break;
+            }
+            case 2:
+            {
+                pop();
+                break;
+            }
+            case 3:
+            {
+                display();
+                break;
+            }
+            case 4:
+            {
+                peak();
+                break;
+            }
+            case 5:
+            {
+                printf("exit point");
+                break;
+            }
+             default:
+            {
+                printf ("\n\t Please Enter a Valid Choice(1/2/3/4/5)");
+            }
+            }
+            }
+
+            while(choice!=5);
+    return 0;
+}
