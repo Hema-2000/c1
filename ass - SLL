@@ -1,0 +1,154 @@
+#include <stdio.h>
+#include<stdlib.h>
+int count=0;
+struct node//struct declaration
+{
+    int data;
+    struct node *next;
+}*head;
+void create()//creation of node function
+{   int num;
+    struct node *temp,*newnode;
+      head=0;//before creation of node head becomes null
+      int choice;
+      while(choice)//to know whether user want to create another node or not
+      {
+    newnode=(struct node *)malloc(sizeof(struct node));//dynamic memory allocation for node
+    printf("enter the data to create:");
+    scanf("%d",&newnode->data);//enter data part of node
+    newnode->next=0;//for starting node address part becomes null
+    if(head==0)//if head is null
+    {
+        head=temp=newnode;//newnode addr is assigned to head which is created 
+    }
+    else//otherwiseat 
+    {
+        temp->next=newnode;//starting node temp is created to store starting addr (this starting part addrs may contain new node addr)
+        temp=newnode;//now temp is updated to new node addr
+    }
+    count++;//to know the no.of nodes
+    printf("do u want to create anothe node?:");//choice to create another node
+    scanf("%d",&choice);
+      }
+}
+
+void display()//display function
+{
+    struct node *temp;
+    temp=head;//head addr is assigned to temp
+    while(temp !=NULL)//condition to check if temp is not null(it continues upto last node)
+    {
+        printf("%d\t",temp->data);//temp date is displayed
+        temp=temp->next;//temp value is increased to next addrs
+    }
+    printf("\nno. of nodes is %d\t",count);//to know the count
+   
+}
+void beg_insert()//beg insertion
+{
+    struct node *newnode;
+   newnode=(struct node *)malloc(sizeof(struct node));
+    printf("enter the data to insert\n");
+    scanf("%d",&newnode->data);
+    newnode->next=head;//head contains first node addr so that addr is assigned to newnode next to create link between newnode and already created node
+    head=newnode;//newnode addr assigned to head to become 1st node
+    count++;
+}
+ void end_insert()//ending insertion
+ {
+     struct node *temp,*newnode;
+    newnode=(struct node *)malloc(sizeof(struct node));
+    printf("enter the data to insert\n");
+    scanf("%d",&newnode->data);
+    newnode->next=0;//for newly created node addr becomes null
+    temp=head;//head is assigned to null
+    while(temp->next!=0)//upto last node temp is going to change(when condition fails it reached to last null)
+    {
+        temp=temp->next;//temp is updated with next node addrs upto last null
+    }
+    temp->next=newnode;//when reaches to last null condition fails(newnode addr is assigned to before node addr to create connection)
+    count++;
+ }
+
+int main()
+{
+    int choice;
+    printf("\n LINKED LIST OPERATIONS ");
+     printf("\n\t 1.CREATE \n\t 2.DISPLAY \n\t 3.BEG_INSERT\n\t 4.END_INSERT\n\t 5.EXIT");
+      do
+    {
+        printf("\n Enter the Choice:");
+        scanf("%d",&choice);
+        switch(choice)
+        {
+            case 1:
+            {
+                create();
+                break;
+            }
+            case 2:
+            {
+                display();
+                break;
+            }
+            case 3:
+            {
+                beg_insert();
+                break;
+            }
+            
+            case 4:
+            {
+                end_insert();
+                break;
+            }
+            
+            case 5:
+            {
+                printf("exit point");
+                break;
+            }
+             default:
+            {
+                printf ("\n\t Please Enter a Valid Choice");
+            }
+            }
+            }
+
+            while(choice!=5);
+    return 0;
+}
+
+
+output:
+
+
+ LINKED LIST OPERATIONS 
+         1.CREATE 
+         2.DISPLAY 
+         3.BEG_INSERT
+         4.END_INSERT
+         5.EXIT
+ Enter the Choice:1
+enter the data to create:200
+do u want to create anothe node?:0
+
+ Enter the Choice:2
+200
+no. of nodes is 1
+ Enter the Choice:3
+enter the data to insert
+100
+
+ Enter the Choice:2
+100     200
+no. of nodes is 2
+ Enter the Choice:4
+enter the data to insert
+300
+
+ Enter the Choice:2
+100     200     300
+no. of nodes is 3
+ Enter the Choice:5
+exit point
