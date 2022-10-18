@@ -1,0 +1,175 @@
+#include <stdio.h>
+#define N 5
+int stack1[N],stack2[N];
+int top1=-1,top2=-1;//represents empty stack
+int count;
+void push1()
+{
+    int x;
+    printf("enter the data:");
+    
+    scanf("%d",&x);
+   
+    if(top1==N-1)//to check stack is empty or not
+    {
+        printf("overflow");
+    }
+    else//if stack is empty
+    {
+        top1++;
+        stack1[top1]=x;
+    }
+}
+void push2(int data)
+{
+    if(top2==N-1)//to check stack is empty or not
+    {
+        printf("overflow");
+    }
+    else//if stack is empty
+    {
+        top2++;
+        stack2[top2]=data;
+    }
+}
+void pushback(int data)
+{
+    if(top2==N-1)//to check stack is empty or not
+    {
+        printf("overflow");
+    }
+    else//if stack is empty
+    {
+        top1++;
+        stack1[top1]=data;
+    }
+}
+int pop1()
+{
+    if(top1==-1)
+        printf("underflow");
+    else
+        return stack1[top1--];//popping elements from stack1 and stored in stack2
+}
+int pop2()
+{
+    if(top2==-1)
+        printf("underflow");
+    else
+        return stack2[top2--];//popping elements from stack2 and stored in stack1
+}
+void enqueue()
+{
+    push1();
+    count++;
+}
+void dequeue()
+{
+    int i,a,b;
+    if(top1==-1 && top2==-1)
+        printf("empty");
+    else
+    {
+        for(i=0;i<count;i++)
+        {
+            a=pop1();//storing popped element from stack1 and stored in a
+            push2(a);//pushing value of a into stack2
+        }
+        b=pop2();//popping top element from stack2 and stored in b
+        printf("the deleted element is %d\n",b);
+        count--;
+        for(i=0;i<count;i++)
+        {
+            a=pop2();//popping top element from stack2 and stored in a
+            pushback(a);//pushing a value in stack1
+        }
+    }
+}
+
+ void display()
+ {
+     int i;
+     for(i=0;i<=top1;i++)
+     {
+         printf("%d\n",stack1[i]);
+     }
+ }
+int main()
+{
+    int choice;
+    printf("implementing queue using two stacks");
+     printf("\n\t 1.enqueue\n\t 2.dequeue\n\t 3.display\n\t 4.exit");
+      do
+    {
+        printf("\n Enter the Choice:");
+        scanf("%d",&choice);
+        switch(choice)
+        {
+            case 1:
+            {
+                enqueue();
+                break;
+            }
+            case 2:
+            {
+                dequeue();
+                break;
+            }
+            case 3:
+            {
+                display();
+                break;
+            }
+            
+            case 4:
+            {
+                printf("exit point");
+                break;
+            }
+             default:
+            {
+                printf ("\n\t Please Enter a Valid Choice(1/2/3/4/5)");
+            }
+            }
+            }
+
+            while(choice!=4);
+    return 0;
+}
+
+
+output:
+implementing queue using two stacks
+         1.enqueue
+         2.dequeue
+         3.display
+         4.exit
+ Enter the Choice:1
+enter the data:1
+
+ Enter the Choice:1
+enter the data:2
+
+ Enter the Choice:1
+enter the data:3
+
+ Enter the Choice:1
+enter the data:4
+
+ Enter the Choice:3
+1
+2
+3
+4
+
+ Enter the Choice:2
+the deleted element is 1
+
+ Enter the Choice:3
+2
+3
+4
+
+ Enter the Choice:5
+
+         Please Enter a Valid Choice(1/2/3/4/5)
