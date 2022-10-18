@@ -1,0 +1,261 @@
+#include <stdio.h>
+#include<stdlib.h>
+int count=0;
+struct node//struct declaration
+{
+    int data;
+    struct node *next;
+       struct node *pre;
+}*head;
+void create()//creation of node function
+{   int num;
+    struct node *temp,*newnode;
+      head=0;//before creation of node head becomes null
+      int choice;
+      while(choice)//to know whether user want to create another node or not
+      {
+    newnode=(struct node *)malloc(sizeof(struct node));//dynamic memory allocation for node
+    printf("enter the data to create");
+    scanf("%d",&newnode->data);//enter data part of node
+    newnode->next=0;//for starting node address part becomes null
+    if(head==0)//if head is null
+    {
+        head=temp=newnode;//newnode addr is assigned to head which is created 
+    }
+    else//otherwise 
+    {
+        temp->next=newnode;//newly created node addr is assigned to tempnext
+        newnode->pre=head;//head is assigned to newnode prev to provide doubly connection
+        temp=newnode;//now temp is updated to new node addr
+    }
+    count++;//to know the no.of nodes
+    printf("do u want to create anothe node?");//choice to create another node
+    scanf("%d",&choice);
+      }
+}
+
+void display()//display function
+{
+    struct node *temp;
+    temp=head;//head addr is assigned to temp
+    while(temp !=NULL)//condition to check if temp is not null(it continues upto last node)
+    {
+        printf("%d",temp->data);//temp date is displayed
+        temp=temp->next;//temp value is increased to next addrs
+    }
+    printf("\nno. of nodes is %d",count);//to know the count
+   
+}
+void beg_insert()//beg insertion
+{
+    struct node *newnode;
+   newnode=(struct node *)malloc(sizeof(struct node));
+    printf("enter the data to insert\n");
+    scanf("%d",&newnode->data);
+    newnode->pre=0;
+    newnode->next=0;
+    head->pre=newnode;//newnode addrs is assigned to head previous 
+    newnode->next=head;//head contains first node addr so that addr is assigned to newnode next to create link between newnode and already created node
+    head=newnode;//newnode addr assigned to head to become 1st node
+    count++;
+}
+ void end_insert()//ending insertion
+ {
+     struct node *temp,*newnode;
+    newnode=(struct node *)malloc(sizeof(struct node));
+    printf("enter the data to insert\n");
+    scanf("%d",&newnode->data);
+    newnode->next=0;//for newly created node addr becomes null
+    newnode->pre=0;
+    temp=head;//head is assigned to null
+    while(temp->next!=0)//upto last node temp is going to change(when condition fails it reached to last null)
+    {
+        temp=temp->next;//temp is updated with next node addrs upto last null
+    }
+    temp->next=newnode;//when reaches to last null condition fails(newnode addr is assigned to before node addr to create connection)
+    newnode->pre=temp;//temp addr is assigned to newnode prev to provide connection
+    count++;
+ }
+ void middle_insert()//middle insertion fun
+ { 
+     struct node *temp,*newnode;
+     int pos,i=1;
+    newnode=(struct node *)malloc(sizeof(struct node));
+    printf("enter the pos\n");
+    scanf("%d",&pos);
+    if(pos>count)
+    {
+        printf("invalid position\n");
+    }
+    else 
+    {
+    printf("enter the data to insert\n");
+    scanf("%d",&newnode->data);
+    temp=head;
+    while(i<pos-1)//upto given position link is traverse
+    {
+        temp=temp->next;//temp is updated with next node addrs
+        i++;//i value increases
+    }
+    
+    newnode->pre=temp;//to provide the connection temp next is assigned to newnodenext
+    newnode->next=temp->next;//new node is assigned to temp to provide connection
+    temp->next=newnode;
+    newnode->next->pre=newnode;
+    }
+    count++;
+ }
+ void middle_aft_insert()//middle after pos insertion fun
+ { 
+     struct node *temp,*newnode;
+     int pos,i=1;
+    newnode=(struct node *)malloc(sizeof(struct node));
+    printf("enter the pos\n");
+    scanf("%d",&pos);
+    if(pos>count)
+    {
+        printf("invalid position\n");
+    }
+    else 
+    {
+    printf("enter the data to insert\n");
+    scanf("%d",&newnode->data);
+    temp=head;
+    while(i<pos)//upto given position link is traverse
+    {
+        temp=temp->next;//temp is updated with next node addrs
+        i++;//i value increases
+    }
+    
+    newnode->pre=temp;//to provide the connection temp next is assigned to newnodenext
+    newnode->next=temp->next;//new node is assigned to temp to provide connection
+    temp->next=newnode;
+    newnode->next->pre=newnode;
+    }
+    count++;
+ }
+ void beg_delete()//beg deletion fun
+ {
+     struct node *temp;
+     if(head==NULL)
+     {
+         printf("empty linkedlist\n");
+     }
+     else
+     {
+     temp=head;
+     head=temp->next;
+     head->pre=0;//to delete first node head is updated with headnext value
+     free(temp);//emp becomes free
+     }
+ }
+ void end_delete()//end del fun
+ {
+     struct node *temp,*prevnode;
+     temp=head;
+     while(temp->next!=0)//upto last node ,link traverse
+     {
+         prevnode=temp;//temp addr is assigned to previous node
+         temp=temp->next;//temp(next) is assigned to temp
+     }
+     if(temp==head)
+     {
+         head=0;
+     }
+      else
+      {
+          prevnode->next=0;//last node becomes nulli.e., prevnode
+      }
+      free(temp);
+ }
+ void middle_delete()//mid deletion fun
+ {
+     struct node *temp,*nextnode;
+     int pos,i=1;
+     printf("enter the pos\n");
+     scanf("%d", &pos);
+     temp=head;
+     while(i<pos-1)//upto pos it traverse
+     {
+         temp=temp->next;//temp is updated with next node addr
+         i++;
+     }
+     
+     nextnode=temp->next;//temp(next) is assigned to nextnode
+     nextnode->next->pre=temp;//temp is assigned to previous node using doubl epointer
+     temp->next=nextnode->next;//to remove middle node nextnode(next) is assigned to temp(next)
+     count--;
+ }
+int main()
+{
+    int choice;
+    printf("\n\t LINKED LIST OPERATIONS ");
+     printf("\n\t 1.CREATE \n\t 2.DISPLAY \n\t 3.BEG_INSERT\n\t 4.END_INSERT\n\t 5.MID_INSERT\n\t 6.MID_AFT_INSERT\n\t 7.BEG_DELETE\n\t 8.END_DELETE\n\t 9.MIDDLE_DELETE\n\t 10.EXIT");
+     do
+     {
+        printf("\n Enter the Choice:");
+        scanf("%d",&choice);
+        switch(choice)
+        {
+            case 1:
+            {
+                create();
+                break;
+            }
+            case 2:
+            {
+                display();
+                break;
+            }
+            case 3:
+            {
+                beg_insert();
+                break;
+            }
+            
+            case 4:
+            {
+                end_insert();
+                break;
+            }
+            case 5:
+            {
+                middle_insert();
+                break;
+                
+            }
+            case 6:
+            {
+                 middle_aft_insert();
+                break;
+            }
+            case 7:
+            {
+                beg_delete();
+                break;
+            }
+            case 8:
+            {
+                end_delete();
+                break;
+            }
+            case 9:
+            {
+                middle_delete();
+                break;
+            }
+            case 10:
+            {
+                printf("exit point");
+                break;
+            }
+             default:
+            {
+                printf ("\n\t Please Enter a Valid Choice");
+            }
+        }
+    }
+
+     while(choice!=10);
+    return 0;
+}
