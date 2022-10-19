@@ -1,0 +1,54 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct node
+   {
+       char data;
+       struct node *next;
+   };
+   void CLL_Traverse(struct node *first)
+  {
+    struct node *ptr=first;
+    ptr=(char*)ptr;
+    do
+    {
+        printf("the element is %c\n", ptr->data);
+        ptr=ptr->next;
+    }
+    while(ptr!=first);
+  }
+     
+int main()
+{
+  // struct node *hea;
+   struct node *first;
+   struct node *second;
+   struct node *third;
+    struct node *fourth;
+     struct node *fifth;
+   first=(struct node*)malloc(sizeof(struct node));
+   second=(struct node*)malloc(sizeof(struct node));
+   third=(struct node*)malloc(sizeof(struct node));
+   fourth=(struct node*)malloc(sizeof(struct node));
+   fifth=(struct node*)malloc(sizeof(struct node));
+   //first->next=second;
+   first->data='a';
+   first->next=second;
+   second->data='e';
+   second->next=third;
+   third->data='i';
+   third->next=fourth;
+   fourth->data='o';
+   fourth->next=fifth;
+   fifth->data='u';
+   fifth->next=first;
+   CLL_Traverse(first);
+    return 0;
+}
+
+
+OUTPUT:
+the element is a
+the element is e
+the element is i
+the element is o
+the element is u
