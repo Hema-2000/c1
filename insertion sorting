@@ -1,0 +1,31 @@
+#include <stdio.h>
+int insertion_sort(int arr[],int n)
+{
+    int i,j,temp;
+    for(i=1;i<n;i++)//for unsorted part
+    {
+        temp=arr[i];//first element in unsorted part
+        j=i-1;////sorted part
+        while(j>=0 && arr[j]>temp)//condition to change the psition if it is greated than unsorted part
+        {
+            arr[j+1]=arr[j];
+            j--;//sorted part is decremented
+        }
+        arr[j+1]=temp;
+    }
+}
+int main()
+{
+   
+   int arr[]={6,10,3,9,1};
+   int n = sizeof(arr)/sizeof(arr[0]);
+   insertion_sort(arr,n);
+   printf("sorted array  is:");
+   for(int i=0;i<n;i++)
+       printf("%d ",arr[i]);
+    return 0;
+}
+
+
+output:
+sorted array  is:1 3 6 9 10
