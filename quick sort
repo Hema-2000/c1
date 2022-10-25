@@ -1,0 +1,61 @@
+#include<stdio.h>
+#include<conio.h>
+
+void quickSort(int [10],int,int);
+
+void main(){
+  int arr[20],size,i;
+
+  printf("Enter size of the arr: ");
+  scanf("%d",&size);//to  enter the size
+
+  printf("Enter %d integer values: ",size);
+  for(i = 0; i < size; i++)
+    scanf("%d",&arr[i]);//to enter the array elements
+
+  quickSort(arr,0,size-1);//fun calling for quicksort
+
+  printf("array after sorting is: ");
+  for(i = 0; i < size; i++)
+    printf(" %d",arr[i]);//printing output elements in an array
+
+  getch();
+}
+
+void quickSort(int arr[10],int start,int end)
+{
+    int pivot,i,j,temp;
+
+     if(start < end)//starting element is less than end 
+     {
+         pivot = start;//start element is assigned to pivot
+         i = start;//at the same assigned to i
+         j = end;//end is assigned to j
+
+         while(i < j)//condition to check i is less than j
+         {
+             while(arr[i] <= arr[pivot] && i < end)//starting value is lessthan or equal to pivot & at the same timeto check i is less than end
+                 i++;//i value is incremented
+             while(arr[j] > arr[pivot])//end element is greater than pivot
+                 j--;//j is decremented
+             if(i <j)//condition to check start is less than end
+             {
+                  temp = arr[i];//if condition satisfies start and end elements are swaped
+                  arr[i] = arr[j];
+                  arr[j] = temp;
+             }
+         }
+
+         temp = arr[pivot];//if above condition is not satisfied pivot and end elements
+         arr[pivot] = arr[j];
+         arr[j] = temp;
+         quickSort(arr,start,j-1);// recursively calling the function on left subarray
+         quickSort(arr,j+1,end);// recursively calling the function on right subarray
+    }
+}
+
+
+output:
+Enter size of the arr: 5
+Enter 5 integer values: 4 2 9 5 1
+array after sorting is:  1 2 4 5 9
