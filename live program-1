@@ -1,0 +1,64 @@
+#include<stdio.h>
+#define N 32
+#define D 7
+const float PI=3.14;
+enum cas{ONE=1,TWO,THREE,FOUR,FIVE};
+enum week{sun=1,mon,tues,wed,thurs,fri,sat}d;
+int main()
+{
+    unsigned int choice;
+    printf("enter the choice:");
+    scanf("%d",&choice);
+      float f;
+       float cels;
+       int days;
+         int wk;
+         int no_days;
+          int no_weeks;
+          unsigned int r;
+          float far;
+          float area;
+         
+    switch(choice)
+    {
+        case ONE:
+              printf("enter the fahrenheit:");
+              scanf("%f",&f);
+              float cels=(f-N)*0.5556;
+              printf("%f",cels);
+              break;
+        case TWO:
+            
+              printf("enter the celsius:");
+              scanf("%f",&cels);
+              far=(cels*1.8)+N;
+              printf("%f",far);
+              break;
+        case THREE:
+              printf("enter the days:");
+              scanf("%d",&days);
+              no_weeks=days/D;
+            
+             printf("%d",no_weeks);
+             break;
+        case FOUR:
+           
+             printf("enter the weeks");
+             scanf("%d",&wk);
+             no_days=wk*D;
+             printf("%d",no_days);
+             break;
+        case FIVE:
+            
+            
+             printf("enter the radius:");
+             scanf("%d",&r);
+             area=PI*r*r;
+             printf("area of a circle is %f",area);
+             break;
+        default:
+             printf("enter valid case:");
+    
+    } 
+          
+}
