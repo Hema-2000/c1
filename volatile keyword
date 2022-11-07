@@ -1,0 +1,29 @@
+?* const and volatile combination*/
+#include<stdio.h>
+
+int main(){
+    const volatile int a=20;//we can modify the value
+    int *ptr=&a;
+    printf("%d",a);
+    *ptr=30;
+    printf("%d",a);
+    
+}
+
+
+
+
+
+#include<stdio.h>
+
+int main(){
+     volatile int a=10;
+    if(a==10)
+    {
+        printf("a is equal to 10");
+    }
+    else
+    {
+        printf("a is not equal to 10");//by using volatile it never optimizes
+    }
+}
