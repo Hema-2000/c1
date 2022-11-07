@@ -1,0 +1,13 @@
+#include <stdio.h>
+//enum days{sun,mon,tues};//automatically the values are initialised
+int main()
+{   
+    enum days{sun=2,mon=5,tues=5,wed=5}day;//we can also declare locally//two or more names can have same values
+    printf("%d %d %d %d",sun,mon,tues,wed);//all unsigned values can be initialised with previous +1
+     printf("\n%ld",sizeof(day));//size of enum is same as integer size
+    return 0;
+   // enum days{mon=2,mon,tues=5,wed=5};//error: redeclaration of enumerator ‘mon’(two common names must not have)
+   //enum days{sun=2,mon=5.7,tues=5,wed=5};//error: enumerator value for ‘mon’ is not an integer constant(only integer values it will take)
+   //same name is not allowed for various enum declaration
+  
+}
