@@ -1,0 +1,12 @@
+#include<stdio.h>
+int main()
+{
+    int a=12345678;
+    char *r=(char *)&a;
+    (*r==78)?printf("little endian"):printf("big endian");
+    
+}
+
+explanation:
+--> in th above program we are doing type casting from integer to char because we have to compare 1 byte of date 
+-->if the starting byte contain last byte then it is called little endian other wise it is called big endian(as it is print)
